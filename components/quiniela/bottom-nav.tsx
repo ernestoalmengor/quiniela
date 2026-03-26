@@ -13,7 +13,9 @@ interface BottomNavProps {
 
 const tabs = [
   { id: "matches", label: "Partidos", icon: Calendar },
-  { id: "leaderboard", label: "Tabla", icon: BarChart3 },
+  { id: "groups", label: "Grupos", icon: Users },
+  { id: "bracket", label: "Llaves", icon: Trophy },
+  { id: "leaderboard", label: "Ranking", icon: BarChart3 },
   { id: "rules", label: "Reglas", icon: Info },
 ]
 

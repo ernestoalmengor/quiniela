@@ -1,12 +1,12 @@
 {
   "currentUser": {
     "name": "Carlos M.",
-    "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=carlos",
+    "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=carlos",
     "participantId": "p1"
   },
   "tournament": {
-    "name": "Liga MX - Clausura 2026",
-    "season": "Clausura 2026",
+    "name": "Mundial FIFA 2026",
+    "season": "2026",
     "logo": "/tournament-logo.png"
   },
   "jornadas": [
@@ -18,48 +18,103 @@
       "matches": [
         {
           "id": "m1",
-          "homeTeam": { "name": "Club America", "shortName": "AME", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=america&backgroundColor=FFEB3B&shape1Color=1A237E" },
-          "awayTeam": { "name": "Guadalajara", "shortName": "GDL", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=chivas&backgroundColor=D32F2F&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Mexico",
+            "shortName": "MEX",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Alemania",
+            "shortName": "GER",
+            "logo": "https://flagcdn.com/de.svg"
+          },
           "date": "2026-01-10T20:00:00Z",
           "venue": "Estadio Azteca",
           "status": "finished",
-          "score": { "home": 2, "away": 1 }
+          "score": {
+            "home": 2,
+            "away": 1
+          }
         },
         {
           "id": "m2",
-          "homeTeam": { "name": "Cruz Azul", "shortName": "CAZ", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=cruzazul&backgroundColor=1565C0&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Pumas UNAM", "shortName": "PUM", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=pumas&backgroundColor=FFC107&shape1Color=1A237E" },
+          "homeTeam": {
+            "name": "Argentina",
+            "shortName": "ARG",
+            "logo": "https://flagcdn.com/ar.svg"
+          },
+          "awayTeam": {
+            "name": "Croacia",
+            "shortName": "CRO",
+            "logo": "https://flagcdn.com/hr.svg"
+          },
           "date": "2026-01-10T22:00:00Z",
           "venue": "Estadio Ciudad de los Deportes",
           "status": "finished",
-          "score": { "home": 0, "away": 0 }
+          "score": {
+            "home": 0,
+            "away": 0
+          }
         },
         {
           "id": "m3",
-          "homeTeam": { "name": "Monterrey", "shortName": "MTY", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=monterrey&backgroundColor=0D47A1&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Tigres UANL", "shortName": "TIG", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=tigres&backgroundColor=FFC107&shape1Color=0D47A1" },
+          "homeTeam": {
+            "name": "Marruecos",
+            "shortName": "MAR",
+            "logo": "https://flagcdn.com/ma.svg"
+          },
+          "awayTeam": {
+            "name": "Japon",
+            "shortName": "JPN",
+            "logo": "https://flagcdn.com/jp.svg"
+          },
           "date": "2026-01-11T18:00:00Z",
           "venue": "Estadio BBVA",
           "status": "finished",
-          "score": { "home": 3, "away": 2 }
+          "score": {
+            "home": 3,
+            "away": 2
+          }
         },
         {
           "id": "m4",
-          "homeTeam": { "name": "Santos Laguna", "shortName": "SAN", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=santos&backgroundColor=4CAF50&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Leon", "shortName": "LEO", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=leon&backgroundColor=388E3C&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Senegal",
+            "shortName": "SEN",
+            "logo": "https://flagcdn.com/sn.svg"
+          },
+          "awayTeam": {
+            "name": "Australia",
+            "shortName": "AUS",
+            "logo": "https://flagcdn.com/au.svg"
+          },
           "date": "2026-01-11T20:00:00Z",
           "venue": "Estadio Corona",
           "status": "finished",
-          "score": { "home": 1, "away": 1 }
+          "score": {
+            "home": 1,
+            "away": 1
+          }
         },
         {
           "id": "m5",
-          "homeTeam": { "name": "Toluca", "shortName": "TOL", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=toluca&backgroundColor=C62828&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Pachuca", "shortName": "PAC", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=pachuca&backgroundColor=1565C0&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Mexico",
+            "shortName": "MEX",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Croacia",
+            "shortName": "CRO",
+            "logo": "https://flagcdn.com/hr.svg"
+          },
           "date": "2026-01-12T18:00:00Z",
           "venue": "Estadio Nemesio Diez",
           "status": "finished",
-          "score": { "home": 2, "away": 0 }
+          "score": {
+            "home": 2,
+            "away": 0
+          }
         }
       ]
     },
@@ -71,18 +126,37 @@
       "matches": [
         {
           "id": "m6",
-          "homeTeam": { "name": "Guadalajara", "shortName": "GDL", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=chivas&backgroundColor=D32F2F&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Monterrey", "shortName": "MTY", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=monterrey&backgroundColor=0D47A1&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Guadalajara",
+            "shortName": "GDL",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Monterrey",
+            "shortName": "MTY",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-17T20:00:00Z",
           "venue": "Estadio Akron",
           "status": "live",
-          "score": { "home": 1, "away": 1 },
+          "score": {
+            "home": 1,
+            "away": 1
+          },
           "minute": 67
         },
         {
           "id": "m7",
-          "homeTeam": { "name": "Tigres UANL", "shortName": "TIG", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=tigres&backgroundColor=FFC107&shape1Color=0D47A1" },
-          "awayTeam": { "name": "Club America", "shortName": "AME", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=america&backgroundColor=FFEB3B&shape1Color=1A237E" },
+          "homeTeam": {
+            "name": "Tigres UANL",
+            "shortName": "TIG",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Club America",
+            "shortName": "AME",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-17T22:00:00Z",
           "venue": "Estadio Universitario",
           "status": "upcoming",
@@ -90,8 +164,16 @@
         },
         {
           "id": "m8",
-          "homeTeam": { "name": "Pumas UNAM", "shortName": "PUM", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=pumas&backgroundColor=FFC107&shape1Color=1A237E" },
-          "awayTeam": { "name": "Toluca", "shortName": "TOL", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=toluca&backgroundColor=C62828&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Pumas UNAM",
+            "shortName": "PUM",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Toluca",
+            "shortName": "TOL",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-18T18:00:00Z",
           "venue": "Estadio Olimpico Universitario",
           "status": "upcoming",
@@ -99,8 +181,16 @@
         },
         {
           "id": "m9",
-          "homeTeam": { "name": "Leon", "shortName": "LEO", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=leon&backgroundColor=388E3C&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Cruz Azul", "shortName": "CAZ", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=cruzazul&backgroundColor=1565C0&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Leon",
+            "shortName": "LEO",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Cruz Azul",
+            "shortName": "CAZ",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-18T20:00:00Z",
           "venue": "Estadio Leon",
           "status": "upcoming",
@@ -108,8 +198,16 @@
         },
         {
           "id": "m10",
-          "homeTeam": { "name": "Pachuca", "shortName": "PAC", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=pachuca&backgroundColor=1565C0&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Santos Laguna", "shortName": "SAN", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=santos&backgroundColor=4CAF50&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Pachuca",
+            "shortName": "PAC",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Santos Laguna",
+            "shortName": "SAN",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-18T22:00:00Z",
           "venue": "Estadio Hidalgo",
           "status": "upcoming",
@@ -125,8 +223,16 @@
       "matches": [
         {
           "id": "m11",
-          "homeTeam": { "name": "Club America", "shortName": "AME", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=america&backgroundColor=FFEB3B&shape1Color=1A237E" },
-          "awayTeam": { "name": "Leon", "shortName": "LEO", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=leon&backgroundColor=388E3C&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Club America",
+            "shortName": "AME",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Leon",
+            "shortName": "LEO",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-24T20:00:00Z",
           "venue": "Estadio Azteca",
           "status": "upcoming",
@@ -134,8 +240,16 @@
         },
         {
           "id": "m12",
-          "homeTeam": { "name": "Cruz Azul", "shortName": "CAZ", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=cruzazul&backgroundColor=1565C0&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Guadalajara", "shortName": "GDL", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=chivas&backgroundColor=D32F2F&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Cruz Azul",
+            "shortName": "CAZ",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Guadalajara",
+            "shortName": "GDL",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-24T22:00:00Z",
           "venue": "Estadio Ciudad de los Deportes",
           "status": "upcoming",
@@ -143,8 +257,16 @@
         },
         {
           "id": "m13",
-          "homeTeam": { "name": "Monterrey", "shortName": "MTY", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=monterrey&backgroundColor=0D47A1&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Pachuca", "shortName": "PAC", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=pachuca&backgroundColor=1565C0&shape1Color=FFFFFF" },
+          "homeTeam": {
+            "name": "Monterrey",
+            "shortName": "MTY",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Pachuca",
+            "shortName": "PAC",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-25T18:00:00Z",
           "venue": "Estadio BBVA",
           "status": "upcoming",
@@ -152,8 +274,16 @@
         },
         {
           "id": "m14",
-          "homeTeam": { "name": "Santos Laguna", "shortName": "SAN", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=santos&backgroundColor=4CAF50&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Tigres UANL", "shortName": "TIG", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=tigres&backgroundColor=FFC107&shape1Color=0D47A1" },
+          "homeTeam": {
+            "name": "Santos Laguna",
+            "shortName": "SAN",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Tigres UANL",
+            "shortName": "TIG",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-25T20:00:00Z",
           "venue": "Estadio Corona",
           "status": "upcoming",
@@ -161,8 +291,16 @@
         },
         {
           "id": "m15",
-          "homeTeam": { "name": "Toluca", "shortName": "TOL", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=toluca&backgroundColor=C62828&shape1Color=FFFFFF" },
-          "awayTeam": { "name": "Pumas UNAM", "shortName": "PUM", "logo": "https://api.dicebear.com/9.x/shapes/svg?seed=pumas&backgroundColor=FFC107&shape1Color=1A237E" },
+          "homeTeam": {
+            "name": "Toluca",
+            "shortName": "TOL",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "awayTeam": {
+            "name": "Pumas UNAM",
+            "shortName": "PUM",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
           "date": "2026-01-25T22:00:00Z",
           "venue": "Estadio Nemesio Diez",
           "status": "upcoming",
@@ -175,145 +313,385 @@
     {
       "id": "p1",
       "name": "Carlos M.",
-      "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=carlos",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=carlos",
       "totalPoints": 28,
       "predictions": {
-        "m1": { "home": 2, "away": 0 },
-        "m2": { "home": 1, "away": 0 },
-        "m3": { "home": 2, "away": 2 },
-        "m4": { "home": 1, "away": 1 },
-        "m5": { "home": 2, "away": 1 },
-        "m6": { "home": 2, "away": 1 },
-        "m7": { "home": 1, "away": 3 },
-        "m8": { "home": 0, "away": 1 },
-        "m9": { "home": 1, "away": 2 },
-        "m10": { "home": 0, "away": 0 }
+        "m1": {
+          "home": 2,
+          "away": 0
+        },
+        "m2": {
+          "home": 1,
+          "away": 0
+        },
+        "m3": {
+          "home": 2,
+          "away": 2
+        },
+        "m4": {
+          "home": 1,
+          "away": 1
+        },
+        "m5": {
+          "home": 2,
+          "away": 1
+        },
+        "m6": {
+          "home": 2,
+          "away": 1
+        },
+        "m7": {
+          "home": 1,
+          "away": 3
+        },
+        "m8": {
+          "home": 0,
+          "away": 1
+        },
+        "m9": {
+          "home": 1,
+          "away": 2
+        },
+        "m10": {
+          "home": 0,
+          "away": 0
+        }
       }
     },
     {
       "id": "p2",
       "name": "Maria L.",
-      "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=maria",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=maria",
       "totalPoints": 34,
       "predictions": {
-        "m1": { "home": 2, "away": 1 },
-        "m2": { "home": 0, "away": 0 },
-        "m3": { "home": 3, "away": 1 },
-        "m4": { "home": 2, "away": 1 },
-        "m5": { "home": 2, "away": 0 },
-        "m6": { "home": 1, "away": 2 },
-        "m7": { "home": 0, "away": 2 },
-        "m8": { "home": 1, "away": 1 },
-        "m9": { "home": 0, "away": 3 },
-        "m10": { "home": 1, "away": 1 }
+        "m1": {
+          "home": 2,
+          "away": 1
+        },
+        "m2": {
+          "home": 0,
+          "away": 0
+        },
+        "m3": {
+          "home": 3,
+          "away": 1
+        },
+        "m4": {
+          "home": 2,
+          "away": 1
+        },
+        "m5": {
+          "home": 2,
+          "away": 0
+        },
+        "m6": {
+          "home": 1,
+          "away": 2
+        },
+        "m7": {
+          "home": 0,
+          "away": 2
+        },
+        "m8": {
+          "home": 1,
+          "away": 1
+        },
+        "m9": {
+          "home": 0,
+          "away": 3
+        },
+        "m10": {
+          "home": 1,
+          "away": 1
+        }
       }
     },
     {
       "id": "p3",
       "name": "Jorge R.",
-      "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=jorge",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=jorge",
       "totalPoints": 22,
       "predictions": {
-        "m1": { "home": 1, "away": 2 },
-        "m2": { "home": 1, "away": 1 },
-        "m3": { "home": 2, "away": 3 },
-        "m4": { "home": 0, "away": 2 },
-        "m5": { "home": 1, "away": 0 },
-        "m6": { "home": 0, "away": 0 },
-        "m7": { "home": 2, "away": 2 },
-        "m8": { "home": 3, "away": 1 },
-        "m9": { "home": 1, "away": 1 },
-        "m10": { "home": 2, "away": 0 }
+        "m1": {
+          "home": 1,
+          "away": 2
+        },
+        "m2": {
+          "home": 1,
+          "away": 1
+        },
+        "m3": {
+          "home": 2,
+          "away": 3
+        },
+        "m4": {
+          "home": 0,
+          "away": 2
+        },
+        "m5": {
+          "home": 1,
+          "away": 0
+        },
+        "m6": {
+          "home": 0,
+          "away": 0
+        },
+        "m7": {
+          "home": 2,
+          "away": 2
+        },
+        "m8": {
+          "home": 3,
+          "away": 1
+        },
+        "m9": {
+          "home": 1,
+          "away": 1
+        },
+        "m10": {
+          "home": 2,
+          "away": 0
+        }
       }
     },
     {
       "id": "p4",
       "name": "Ana S.",
-      "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=ana",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=ana",
       "totalPoints": 31,
       "predictions": {
-        "m1": { "home": 3, "away": 1 },
-        "m2": { "home": 0, "away": 0 },
-        "m3": { "home": 3, "away": 2 },
-        "m4": { "home": 1, "away": 0 },
-        "m5": { "home": 1, "away": 1 },
-        "m6": { "home": 1, "away": 1 },
-        "m7": { "home": 1, "away": 2 },
-        "m8": { "home": 2, "away": 0 },
-        "m9": { "home": 0, "away": 1 },
-        "m10": { "home": 1, "away": 2 }
+        "m1": {
+          "home": 3,
+          "away": 1
+        },
+        "m2": {
+          "home": 0,
+          "away": 0
+        },
+        "m3": {
+          "home": 3,
+          "away": 2
+        },
+        "m4": {
+          "home": 1,
+          "away": 0
+        },
+        "m5": {
+          "home": 1,
+          "away": 1
+        },
+        "m6": {
+          "home": 1,
+          "away": 1
+        },
+        "m7": {
+          "home": 1,
+          "away": 2
+        },
+        "m8": {
+          "home": 2,
+          "away": 0
+        },
+        "m9": {
+          "home": 0,
+          "away": 1
+        },
+        "m10": {
+          "home": 1,
+          "away": 2
+        }
       }
     },
     {
       "id": "p5",
       "name": "Roberto P.",
-      "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=roberto",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=roberto",
       "totalPoints": 26,
       "predictions": {
-        "m1": { "home": 1, "away": 1 },
-        "m2": { "home": 2, "away": 1 },
-        "m3": { "home": 4, "away": 2 },
-        "m4": { "home": 1, "away": 1 },
-        "m5": { "home": 3, "away": 0 },
-        "m6": { "home": 2, "away": 0 },
-        "m7": { "home": 0, "away": 1 },
-        "m8": { "home": 1, "away": 2 },
-        "m9": { "home": 2, "away": 2 },
-        "m10": { "home": 0, "away": 1 }
+        "m1": {
+          "home": 1,
+          "away": 1
+        },
+        "m2": {
+          "home": 2,
+          "away": 1
+        },
+        "m3": {
+          "home": 4,
+          "away": 2
+        },
+        "m4": {
+          "home": 1,
+          "away": 1
+        },
+        "m5": {
+          "home": 3,
+          "away": 0
+        },
+        "m6": {
+          "home": 2,
+          "away": 0
+        },
+        "m7": {
+          "home": 0,
+          "away": 1
+        },
+        "m8": {
+          "home": 1,
+          "away": 2
+        },
+        "m9": {
+          "home": 2,
+          "away": 2
+        },
+        "m10": {
+          "home": 0,
+          "away": 1
+        }
       }
     },
     {
       "id": "p6",
       "name": "Laura G.",
-      "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=laura",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=laura",
       "totalPoints": 19,
       "predictions": {
-        "m1": { "home": 0, "away": 2 },
-        "m2": { "home": 1, "away": 2 },
-        "m3": { "home": 1, "away": 1 },
-        "m4": { "home": 2, "away": 0 },
-        "m5": { "home": 0, "away": 1 },
-        "m6": { "home": 3, "away": 1 },
-        "m7": { "home": 2, "away": 0 },
-        "m8": { "home": 0, "away": 0 },
-        "m9": { "home": 1, "away": 0 },
-        "m10": { "home": 3, "away": 2 }
+        "m1": {
+          "home": 0,
+          "away": 2
+        },
+        "m2": {
+          "home": 1,
+          "away": 2
+        },
+        "m3": {
+          "home": 1,
+          "away": 1
+        },
+        "m4": {
+          "home": 2,
+          "away": 0
+        },
+        "m5": {
+          "home": 0,
+          "away": 1
+        },
+        "m6": {
+          "home": 3,
+          "away": 1
+        },
+        "m7": {
+          "home": 2,
+          "away": 0
+        },
+        "m8": {
+          "home": 0,
+          "away": 0
+        },
+        "m9": {
+          "home": 1,
+          "away": 0
+        },
+        "m10": {
+          "home": 3,
+          "away": 2
+        }
       }
     },
     {
       "id": "p7",
       "name": "Diego F.",
-      "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=diego",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=diego",
       "totalPoints": 30,
       "predictions": {
-        "m1": { "home": 2, "away": 1 },
-        "m2": { "home": 1, "away": 0 },
-        "m3": { "home": 3, "away": 2 },
-        "m4": { "home": 0, "away": 0 },
-        "m5": { "home": 2, "away": 0 },
-        "m6": { "home": 1, "away": 0 },
-        "m7": { "home": 1, "away": 1 },
-        "m8": { "home": 2, "away": 1 },
-        "m9": { "home": 0, "away": 2 },
-        "m10": { "home": 1, "away": 0 }
+        "m1": {
+          "home": 2,
+          "away": 1
+        },
+        "m2": {
+          "home": 1,
+          "away": 0
+        },
+        "m3": {
+          "home": 3,
+          "away": 2
+        },
+        "m4": {
+          "home": 0,
+          "away": 0
+        },
+        "m5": {
+          "home": 2,
+          "away": 0
+        },
+        "m6": {
+          "home": 1,
+          "away": 0
+        },
+        "m7": {
+          "home": 1,
+          "away": 1
+        },
+        "m8": {
+          "home": 2,
+          "away": 1
+        },
+        "m9": {
+          "home": 0,
+          "away": 2
+        },
+        "m10": {
+          "home": 1,
+          "away": 0
+        }
       }
     },
     {
       "id": "p8",
       "name": "Sofia V.",
-      "avatar": "https://api.dicebear.com/9.x/avataaars/svg?seed=sofia",
+      "avatar": "https://api.dicebear.com/9.x/fun-emoji/svg?seed=sofia",
       "totalPoints": 25,
       "predictions": {
-        "m1": { "home": 1, "away": 0 },
-        "m2": { "home": 0, "away": 1 },
-        "m3": { "home": 2, "away": 1 },
-        "m4": { "home": 1, "away": 1 },
-        "m5": { "home": 3, "away": 1 },
-        "m6": { "home": 0, "away": 2 },
-        "m7": { "home": 2, "away": 3 },
-        "m8": { "home": 1, "away": 0 },
-        "m9": { "home": 1, "away": 1 },
-        "m10": { "home": 2, "away": 1 }
+        "m1": {
+          "home": 1,
+          "away": 0
+        },
+        "m2": {
+          "home": 0,
+          "away": 1
+        },
+        "m3": {
+          "home": 2,
+          "away": 1
+        },
+        "m4": {
+          "home": 1,
+          "away": 1
+        },
+        "m5": {
+          "home": 3,
+          "away": 1
+        },
+        "m6": {
+          "home": 0,
+          "away": 2
+        },
+        "m7": {
+          "home": 2,
+          "away": 3
+        },
+        "m8": {
+          "home": 1,
+          "away": 0
+        },
+        "m9": {
+          "home": 1,
+          "away": 1
+        },
+        "m10": {
+          "home": 2,
+          "away": 1
+        }
       }
     }
   ],
@@ -322,5 +700,210 @@
     "correctResult": 3,
     "correctGoalDifference": 1,
     "description": "Resultado exacto: 5 pts | Resultado correcto (1X2): 3 pts | Diferencia de goles correcta: 1 pt extra"
-  }
+  },
+  "groups": [
+    {
+      "id": "A",
+      "name": "Grupo A",
+      "teams": [
+        {
+          "team": {
+            "name": "Mexico",
+            "shortName": "MEX",
+            "logo": "https://flagcdn.com/mx.svg"
+          },
+          "played": 3,
+          "won": 2,
+          "drawn": 1,
+          "lost": 0,
+          "goalsFor": 5,
+          "goalsAgainst": 2,
+          "goalDifference": 3,
+          "points": 7
+        },
+        {
+          "team": {
+            "name": "Alemania",
+            "shortName": "GER",
+            "logo": "https://flagcdn.com/de.svg"
+          },
+          "played": 3,
+          "won": 2,
+          "drawn": 0,
+          "lost": 1,
+          "goalsFor": 6,
+          "goalsAgainst": 3,
+          "goalDifference": 3,
+          "points": 6
+        },
+        {
+          "team": {
+            "name": "Marruecos",
+            "shortName": "MAR",
+            "logo": "https://flagcdn.com/ma.svg"
+          },
+          "played": 3,
+          "won": 1,
+          "drawn": 1,
+          "lost": 1,
+          "goalsFor": 3,
+          "goalsAgainst": 4,
+          "goalDifference": -1,
+          "points": 4
+        },
+        {
+          "team": {
+            "name": "Japon",
+            "shortName": "JPN",
+            "logo": "https://flagcdn.com/jp.svg"
+          },
+          "played": 3,
+          "won": 0,
+          "drawn": 0,
+          "lost": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 6,
+          "goalDifference": -5,
+          "points": 0
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Grupo B",
+      "teams": [
+        {
+          "team": {
+            "name": "Argentina",
+            "shortName": "ARG",
+            "logo": "https://flagcdn.com/ar.svg"
+          },
+          "played": 3,
+          "won": 3,
+          "drawn": 0,
+          "lost": 0,
+          "goalsFor": 7,
+          "goalsAgainst": 1,
+          "goalDifference": 6,
+          "points": 9
+        },
+        {
+          "team": {
+            "name": "Croacia",
+            "shortName": "CRO",
+            "logo": "https://flagcdn.com/hr.svg"
+          },
+          "played": 3,
+          "won": 1,
+          "drawn": 1,
+          "lost": 1,
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "goalDifference": 0,
+          "points": 4
+        },
+        {
+          "team": {
+            "name": "Senegal",
+            "shortName": "SEN",
+            "logo": "https://flagcdn.com/sn.svg"
+          },
+          "played": 3,
+          "won": 1,
+          "drawn": 0,
+          "lost": 2,
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "goalDifference": -2,
+          "points": 3
+        },
+        {
+          "team": {
+            "name": "Australia",
+            "shortName": "AUS",
+            "logo": "https://flagcdn.com/au.svg"
+          },
+          "played": 3,
+          "won": 0,
+          "drawn": 1,
+          "lost": 2,
+          "goalsFor": 2,
+          "goalsAgainst": 6,
+          "goalDifference": -4,
+          "points": 1
+        }
+      ]
+    }
+  ],
+  "bracket": [
+    {
+      "id": "qf1",
+      "phase": "Cuartos",
+      "homeTeam": {
+        "name": "Mexico",
+        "shortName": "MEX",
+        "logo": "https://flagcdn.com/mx.svg"
+      },
+      "awayTeam": {
+        "name": "Croacia",
+        "shortName": "CRO",
+        "logo": "https://flagcdn.com/hr.svg"
+      },
+      "date": "2026-07-04T18:00:00Z",
+      "status": "finished",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "winnerTo": "sf1"
+    },
+    {
+      "id": "qf2",
+      "phase": "Cuartos",
+      "homeTeam": {
+        "name": "Argentina",
+        "shortName": "ARG",
+        "logo": "https://flagcdn.com/ar.svg"
+      },
+      "awayTeam": {
+        "name": "Alemania",
+        "shortName": "GER",
+        "logo": "https://flagcdn.com/de.svg"
+      },
+      "date": "2026-07-04T22:00:00Z",
+      "status": "finished",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "winnerTo": "sf1"
+    },
+    {
+      "id": "sf1",
+      "phase": "Semifinal",
+      "homeTeam": {
+        "name": "Mexico",
+        "shortName": "MEX",
+        "logo": "https://flagcdn.com/mx.svg"
+      },
+      "awayTeam": {
+        "name": "Argentina",
+        "shortName": "ARG",
+        "logo": "https://flagcdn.com/ar.svg"
+      },
+      "date": "2026-07-08T20:00:00Z",
+      "status": "upcoming",
+      "score": null,
+      "winnerTo": "f1"
+    },
+    {
+      "id": "f1",
+      "phase": "Final",
+      "homeTeam": null,
+      "awayTeam": null,
+      "date": "2026-07-12T20:00:00Z",
+      "status": "upcoming",
+      "score": null
+    }
+  ]
 }

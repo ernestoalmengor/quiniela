@@ -3,25 +3,12 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Quiniela - Liga MX Clausura 2026',
-  description: 'Predice resultados de la Liga MX y compite con tus amigos en la quiniela del torneo Clausura 2026',
+  title: 'Quiniela Mundial 2026',
+  description: 'Predice resultados del Mundial de la FIFA 2026 y compite con tus amigos en la quiniela',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/fifa.png',
+    apple: '/fifa.png',
   },
 }
 

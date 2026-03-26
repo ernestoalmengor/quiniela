@@ -5,163 +5,72 @@ import { X, ChevronRight, Trophy, Target, TrendingUp, Pencil, Palette, UserCircl
 import { cn } from "@/lib/utils"
 import type { CurrentUser, Participant, Jornada, Match, Prediction } from "@/lib/types"
 
-const DICEBEAR_BASE = "https://api.dicebear.com/9.x/avataaars/svg"
+const DICEBEAR_BASE = "https://api.dicebear.com/9.x/fun-emoji/svg"
 
-// Opciones para el avatar (DiceBear Avataaars)
-const SKIN_COLORS: { value: string; label: string }[] = [
-  { value: "edb98a", label: "Claro" },
-  { value: "f8d9ce", label: "Muy claro" },
-  { value: "d08b5b", label: "Medio" },
-  { value: "ae5d29", label: "Moreno" },
-  { value: "614335", label: "Oscuro" },
-]
-
+// Opciones para el avatar (DiceBear Fun Emoji)
 const EYE_STYLES: { value: string; label: string }[] = [
-  { value: "default", label: "Normal" },
-  { value: "happy", label: "Feliz" },
-  { value: "wink", label: "Guiño" },
-  { value: "squint", label: "Entrecerrado" },
-  { value: "surprised", label: "Sorpresa" },
-  { value: "side", label: "Lateral" },
-  { value: "hearts", label: "Corazones" },
-]
-
-const HAIR_STYLES: { value: string; label: string }[] = [
-  { value: "longHairStraight", label: "Largo liso" },
-  { value: "longHairCurly", label: "Largo rizado" },
-  { value: "longHairBob", label: "Bob" },
-  { value: "shortHairShortWaved", label: "Corto ondulado" },
-  { value: "shortHairShortFlat", label: "Corto plano" },
-  { value: "shortHairFrizzle", label: "Corto crespo" },
-  { value: "noHair", label: "Sin pelo" },
-  { value: "hat", label: "Sombrero" },
-  { value: "hijab", label: "Hiyab" },
-  { value: "turban", label: "Turbante" },
-  { value: "eyepatch", label: "Parche" },
-]
-
-const HAIR_COLORS: { value: string; label: string }[] = [
-  { value: "000", label: "Negro" },
-  { value: "4a312c", label: "Castaño oscuro" },
-  { value: "724133", label: "Castaño" },
-  { value: "b58143", label: "Rubio oscuro" },
-  { value: "a0652a", label: "Rubio" },
-  { value: "f59797", label: "Pelirrojo" },
-  { value: "e6e6e6", label: "Blanco/Gris" },
-  { value: "fff", label: "Blanco" },
-]
-
-const CLOTHING_TYPES: { value: string; label: string }[] = [
-  { value: "blazerShirt", label: "Blazer" },
-  { value: "blazerSweater", label: "Blazer suéter" },
-  { value: "collarSweater", label: "Sweater con cuello" },
-  { value: "graphicShirt", label: "Playera con estampado" },
-  { value: "hoodie", label: "Hoodie" },
-  { value: "overall", label: "Overall" },
-  { value: "shirtCrewNeck", label: "Cuello redondo" },
-  { value: "shirtScoopNeck", label: "Escote cuchara" },
-  { value: "shirtVNeck", label: "Cuello V" },
-]
-
-const CLOTHING_COLORS: { value: string; label: string }[] = [
-  { value: "1f2937", label: "Gris oscuro" },
-  { value: "374151", label: "Gris" },
-  { value: "4b5563", label: "Gris medio" },
-  { value: "6b7280", label: "Gris claro" },
-  { value: "2563eb", label: "Azul" },
-  { value: "dc2626", label: "Rojo" },
-  { value: "16a34a", label: "Verde" },
-  { value: "ca8a04", label: "Amarillo" },
-  { value: "000", label: "Negro" },
-  { value: "fff", label: "Blanco" },
-]
-
-const ACCESSORIES: { value: string; label: string }[] = [
-  { value: "blank", label: "Ninguno" },
-  { value: "round", label: "Gafas redondas" },
-  { value: "wayfarers", label: "Gafas wayfarer" },
-  { value: "sunglasses", label: "Gafas de sol" },
-  { value: "prescription01", label: "Lentes fórmula 1" },
-  { value: "prescription02", label: "Lentes fórmula 2" },
-  { value: "kurt", label: "Kurt" },
-]
-
-/** Expresiones animadas: boca + cejas (como Duolingo). */
-const MOUTH_OPTIONS: { value: string; label: string }[] = [
-  { value: "smile", label: "Sonrisa" },
-  { value: "tongue", label: "Lengua (muy feliz)" },
-  { value: "twinkle", label: "Guiño sonriente" },
-  { value: "default", label: "Neutral" },
-  { value: "serious", label: "Serio" },
+  { value: "cute", label: "Lindos" },
+  { value: "love", label: "Amor" },
+  { value: "shades", label: "Gafas oscuras" },
+  { value: "glasses", label: "Lentes" },
+  { value: "stars", label: "Estrellas" },
+  { value: "wink", label: "Guiño 1" },
+  { value: "wink2", label: "Guiño 2" },
+  { value: "closed", label: "Cerrados" },
+  { value: "closed2", label: "Cerrados 2" },
+  { value: "sleepClose", label: "Dormido" },
+  { value: "plain", label: "Mirada" },
+  { value: "pissed", label: "Molesto" },
   { value: "sad", label: "Triste" },
-  { value: "concerned", label: "Preocupado" },
-  { value: "disbelief", label: "Increíble" },
-  { value: "eating", label: "Comiendo" },
-  { value: "grimace", label: "Mueca" },
-  { value: "screamOpen", label: "Grito" },
-  { value: "vomit", label: "Asco" },
+  { value: "tearDrop", label: "Lágrima" },
+  { value: "crying", label: "Llorando" },
 ]
 
-const EYEBROW_OPTIONS: { value: string; label: string }[] = [
-  { value: "defaultNatural", label: "Natural" },
-  { value: "raisedExcited", label: "Emocionado" },
-  { value: "raisedExcitedNatural", label: "Alegre" },
-  { value: "flatNatural", label: "Plano" },
-  { value: "unibrowNatural", label: "Uniceja" },
-  { value: "angry", label: "Enojado" },
-  { value: "sadConcerned", label: "Triste" },
-  { value: "frownNatural", label: "Ceño" },
-  { value: "default", label: "Normal" },
+const MOUTH_OPTIONS: { value: string; label: string }[] = [
+  { value: "wideSmile", label: "Sonrisa amplia" },
+  { value: "smileTeeth", label: "Sonrisa con dientes" },
+  { value: "smileLol", label: "Riendo (LOL)" },
+  { value: "lilSmile", label: "Sonrisita" },
+  { value: "plain", label: "Normal" },
+  { value: "cute", label: "Tierna" },
+  { value: "kissHeart", label: "Beso corazón" },
+  { value: "tongueOut", label: "Sacando lengua" },
+  { value: "shy", label: "Tímida" },
+  { value: "pissed", label: "Molesta" },
+  { value: "shout", label: "Grito" },
+  { value: "faceMask", label: "Cubrebocas" },
+  { value: "drip", label: "Babear" },
+  { value: "sick", label: "Enfermo" },
+  { value: "sad", label: "Triste" },
 ]
 
-/** Seeds para elegir un personaje/avatar base distinto (cada uno genera una cara diferente). */
-const AVATAR_SEEDS = [
-  "carlos",
-  "maria",
-  "jorge",
-  "ana",
-  "roberto",
-  "laura",
-  "diego",
-  "sofia",
-  "pedro",
-  "lucia",
-  "marcos",
-  "elena",
-  "miguel",
-  "carmen",
-  "pablo",
-  "rosa",
-  "fernando",
-  "isabel",
-  "andres",
-  "valentina",
+const BG_COLORS: { value: string; label: string }[] = [
+  { value: "b6e3f4", label: "Celeste" },
+  { value: "c0aede", label: "Morado" },
+  { value: "d1d4f9", label: "Lila" },
+  { value: "ffd5dc", label: "Rosa" },
+  { value: "ffdfbf", label: "Naranja" },
+  { value: "fde047", label: "Amarillo" },
+  { value: "bbf7d0", label: "Verde claro" },
+  { value: "fecaca", label: "Rojo claro" },
+  { value: "e5e7eb", label: "Gris" },
+  { value: "transparent", label: "Transparente" },
 ]
+
+
 
 export interface AvatarOptions {
   seed: string
-  skinColor: string
   eyes: string
-  eyebrow: string
   mouth: string
-  top: string
-  hairColor: string
-  clothes: string
-  clothColor: string
-  accessories: string
+  backgroundColor: string
 }
 
 const DEFAULT_AVATAR_OPTIONS: AvatarOptions = {
   seed: "avatar",
-  skinColor: SKIN_COLORS[0].value,
-  eyes: EYE_STYLES[0].value,
-  eyebrow: "defaultNatural",
-  mouth: "smile",
-  top: HAIR_STYLES[0].value,
-  hairColor: HAIR_COLORS[0].value,
-  clothes: CLOTHING_TYPES[0].value,
-  clothColor: CLOTHING_COLORS[0].value,
-  accessories: ACCESSORIES[0].value,
+  eyes: "cute",
+  mouth: "wideSmile",
+  backgroundColor: "transparent",
 }
 
 function parseAvatarUrl(url: string): AvatarOptions {
@@ -170,47 +79,21 @@ function parseAvatarUrl(url: string): AvatarOptions {
     const p = u.searchParams
     return {
       seed: p.get("seed") ?? DEFAULT_AVATAR_OPTIONS.seed,
-      skinColor: p.get("skinColor") ?? DEFAULT_AVATAR_OPTIONS.skinColor,
       eyes: p.get("eyes") ?? DEFAULT_AVATAR_OPTIONS.eyes,
-      eyebrow: p.get("eyebrow") ?? DEFAULT_AVATAR_OPTIONS.eyebrow,
       mouth: p.get("mouth") ?? DEFAULT_AVATAR_OPTIONS.mouth,
-      top: p.get("topType") ?? p.get("top") ?? DEFAULT_AVATAR_OPTIONS.top,
-      hairColor: p.get("hairColor") ?? DEFAULT_AVATAR_OPTIONS.hairColor,
-      clothes: p.get("clothes") ?? DEFAULT_AVATAR_OPTIONS.clothes,
-      clothColor: p.get("clothColor") ?? DEFAULT_AVATAR_OPTIONS.clothColor,
-      accessories: p.get("accessories") ?? DEFAULT_AVATAR_OPTIONS.accessories,
+      backgroundColor: p.get("backgroundColor") ?? DEFAULT_AVATAR_OPTIONS.backgroundColor,
     }
   } catch {
     return { ...DEFAULT_AVATAR_OPTIONS }
   }
 }
 
-/** Convierte hex 3 chars a 6 (ej: 000 -> 000000, fff -> ffffff) para la API. */
-function normalizeHex(color: string): string {
-  if (color.length === 3) {
-    return color
-      .split("")
-      .map((c) => c + c)
-      .join("")
-  }
-  return color
-}
-
 function buildAvatarUrl(opts: AvatarOptions): string {
   const params = new URLSearchParams()
   params.set("seed", opts.seed)
-  params.set("skinColor", normalizeHex(opts.skinColor))
-  params.set("eyes", opts.eyes)
-  params.set("eyebrow", opts.eyebrow)
-  params.set("mouth", opts.mouth)
-  params.set("topType", opts.top) // La API usa topType, no top
-  params.set("hairColor", normalizeHex(opts.hairColor))
-  params.set("clothes", opts.clothes)
-  params.set("clothColor", "#" + normalizeHex(opts.clothColor))
-  if (opts.accessories && opts.accessories !== "blank") {
-    params.set("accessories", opts.accessories)
-    params.set("accessoriesProbability", "100") // Para que siempre se muestren gafas, etc.
-  }
+  if (opts.eyes !== "default") params.set("eyes", opts.eyes)
+  if (opts.mouth !== "default") params.set("mouth", opts.mouth)
+  if (opts.backgroundColor !== "transparent") params.set("backgroundColor", opts.backgroundColor)
   return `${DICEBEAR_BASE}?${params.toString()}`
 }
 
@@ -255,11 +138,11 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
   const [editingAvatar, setEditingAvatar] = useState(false)
   const [expandedJornada, setExpandedJornada] = useState<number | null>(null)
   const [avatarOptions, setAvatarOptions] = useState<AvatarOptions>(() =>
-    user.avatar.includes("avataaars") ? parseAvatarUrl(user.avatar) : DEFAULT_AVATAR_OPTIONS
+    user.avatar.includes("fun-emoji") ? parseAvatarUrl(user.avatar) : DEFAULT_AVATAR_OPTIONS
   )
 
   useEffect(() => {
-    if (editingAvatar && user.avatar.includes("avataaars")) {
+    if (editingAvatar && user.avatar.includes("fun-emoji")) {
       setAvatarOptions(parseAvatarUrl(user.avatar))
     }
   }, [editingAvatar, user.avatar])
@@ -393,122 +276,16 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                 </div>
               </div>
 
-              {/* Elegir personaje / Cambiar avatar base */}
-              <div className="space-y-2">
-                <span className="flex items-center gap-1.5 text-xs font-semibold text-foreground">
-                  <UserCircle className="h-3.5 w-3.5 text-primary" />
-                  Elegir personaje
-                </span>
-                <p className="text-[11px] text-muted-foreground">
-                  Elige un avatar base; luego personaliza abajo.
-                </p>
-                <div className="flex gap-2 overflow-x-auto pb-1">
-                  {AVATAR_SEEDS.map((seed) => {
-                    const isSelected = avatarOptions.seed === seed
-                    const url = buildAvatarUrlWithOverride(avatarOptions, { seed })
-                    return (
-                      <button
-                        key={seed}
-                        type="button"
-                        onClick={() => updateAvatarOption("seed", seed)}
-                        className={cn(
-                          "relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 bg-card transition-transform active:scale-95",
-                          isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
-                        )}
-                        title={seed}
-                        aria-label={`Personaje ${seed}`}
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={url} alt="" className="h-full w-full object-cover" crossOrigin="anonymous" />
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
+
 
               {/* Filas de opciones táctiles (sin dropdowns) */}
               <div className="space-y-4">
-                {/* Expresión (boca + cejas) - avatares más animados */}
+                {/* Ojos */}
                 <div className="space-y-2">
                   <span className="flex items-center gap-1.5 text-xs font-semibold text-foreground">
                     <Smile className="h-3.5 w-3.5 text-primary" />
-                    Expresión
+                    Ojos
                   </span>
-                  <p className="text-[11px] text-muted-foreground">Boca (animada)</p>
-                  <div className="flex gap-2 overflow-x-auto pb-1">
-                    {MOUTH_OPTIONS.map((o) => {
-                      const isSelected = avatarOptions.mouth === o.value
-                      const url = buildAvatarUrlWithOverride(avatarOptions, { mouth: o.value })
-                      return (
-                        <button
-                          key={o.value}
-                          type="button"
-                          onClick={() => updateAvatarOption("mouth", o.value)}
-                          className={cn(
-                            "relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 bg-card transition-transform active:scale-95",
-                            isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
-                          )}
-                          title={o.label}
-                          aria-label={o.label}
-                        >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={url} alt="" className="h-full w-full object-cover" crossOrigin="anonymous" />
-                        </button>
-                      )
-                    })}
-                  </div>
-                  <p className="text-[11px] text-muted-foreground mt-1">Cejas</p>
-                  <div className="flex gap-2 overflow-x-auto pb-1">
-                    {EYEBROW_OPTIONS.map((o) => {
-                      const isSelected = avatarOptions.eyebrow === o.value
-                      const url = buildAvatarUrlWithOverride(avatarOptions, { eyebrow: o.value })
-                      return (
-                        <button
-                          key={o.value}
-                          type="button"
-                          onClick={() => updateAvatarOption("eyebrow", o.value)}
-                          className={cn(
-                            "relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 bg-card transition-transform active:scale-95",
-                            isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
-                          )}
-                          title={o.label}
-                          aria-label={o.label}
-                        >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={url} alt="" className="h-full w-full object-cover" crossOrigin="anonymous" />
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* Color de piel - círculos de color */}
-                <div className="space-y-2">
-                  <span className="text-xs font-semibold text-foreground">Color de piel</span>
-                  <div className="flex gap-2 overflow-x-auto pb-1">
-                    {SKIN_COLORS.map((o) => {
-                      const isSelected = avatarOptions.skinColor === o.value
-                      return (
-                        <button
-                          key={o.value}
-                          type="button"
-                          onClick={() => updateAvatarOption("skinColor", o.value)}
-                          className={cn(
-                            "h-9 w-9 shrink-0 rounded-full border-2 transition-transform active:scale-95",
-                            isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
-                          )}
-                          style={{ backgroundColor: `#${normalizeHex(o.value)}` }}
-                          title={o.label}
-                          aria-label={o.label}
-                        />
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* Estilo de ojos - mini avatares */}
-                <div className="space-y-2">
-                  <span className="text-xs font-semibold text-foreground">Ojos</span>
                   <div className="flex gap-2 overflow-x-auto pb-1">
                     {EYE_STYLES.map((o) => {
                       const isSelected = avatarOptions.eyes === o.value
@@ -533,18 +310,21 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                   </div>
                 </div>
 
-                {/* Estilo de cabello / Sombrero */}
+                {/* Boca */}
                 <div className="space-y-2">
-                  <span className="text-xs font-semibold text-foreground">Cabello / Sombrero</span>
+                  <span className="flex items-center gap-1.5 text-xs font-semibold text-foreground">
+                    <Smile className="h-3.5 w-3.5 text-primary" />
+                    Boca
+                  </span>
                   <div className="flex gap-2 overflow-x-auto pb-1">
-                    {HAIR_STYLES.map((o) => {
-                      const isSelected = avatarOptions.top === o.value
-                      const url = buildAvatarUrlWithOverride(avatarOptions, { top: o.value })
+                    {MOUTH_OPTIONS.map((o) => {
+                      const isSelected = avatarOptions.mouth === o.value
+                      const url = buildAvatarUrlWithOverride(avatarOptions, { mouth: o.value })
                       return (
                         <button
                           key={o.value}
                           type="button"
-                          onClick={() => updateAvatarOption("top", o.value)}
+                          onClick={() => updateAvatarOption("mouth", o.value)}
                           className={cn(
                             "relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 bg-card transition-transform active:scale-95",
                             isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
@@ -560,104 +340,28 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                   </div>
                 </div>
 
-                {/* Color de cabello - círculos */}
+                {/* Color de fondo */}
                 <div className="space-y-2">
-                  <span className="text-xs font-semibold text-foreground">Color de cabello</span>
+                  <span className="text-xs font-semibold text-foreground">Color de fondo</span>
                   <div className="flex gap-2 overflow-x-auto pb-1">
-                    {HAIR_COLORS.map((o) => {
-                      const isSelected = avatarOptions.hairColor === o.value
-                      const hex = normalizeHex(o.value)
+                    {BG_COLORS.map((o) => {
+                      const isSelected = avatarOptions.backgroundColor === o.value
                       return (
                         <button
                           key={o.value}
                           type="button"
-                          onClick={() => updateAvatarOption("hairColor", o.value)}
+                          onClick={() => updateAvatarOption("backgroundColor", o.value)}
                           className={cn(
                             "h-9 w-9 shrink-0 rounded-full border-2 transition-transform active:scale-95",
                             isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
                           )}
-                          style={{ backgroundColor: `#${hex}` }}
-                          title={o.label}
-                          aria-label={o.label}
-                        />
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* Tipo de ropa */}
-                <div className="space-y-2">
-                  <span className="text-xs font-semibold text-foreground">Ropa</span>
-                  <div className="flex gap-2 overflow-x-auto pb-1">
-                    {CLOTHING_TYPES.map((o) => {
-                      const isSelected = avatarOptions.clothes === o.value
-                      const url = buildAvatarUrlWithOverride(avatarOptions, { clothes: o.value })
-                      return (
-                        <button
-                          key={o.value}
-                          type="button"
-                          onClick={() => updateAvatarOption("clothes", o.value)}
-                          className={cn(
-                            "relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 bg-card transition-transform active:scale-95",
-                            isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
-                          )}
+                          style={{ backgroundColor: o.value !== "transparent" ? `#${o.value}` : "transparent" }}
                           title={o.label}
                           aria-label={o.label}
                         >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={url} alt="" className="h-full w-full object-cover" crossOrigin="anonymous" />
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* Color de ropa - mismo formato hex que la API */}
-                <div className="space-y-2">
-                  <span className="text-xs font-semibold text-foreground">Color de ropa</span>
-                  <div className="flex gap-2 overflow-x-auto pb-1">
-                    {CLOTHING_COLORS.map((o) => {
-                      const isSelected = avatarOptions.clothColor === o.value
-                      const hex = normalizeHex(o.value)
-                      return (
-                        <button
-                          key={o.value}
-                          type="button"
-                          onClick={() => updateAvatarOption("clothColor", o.value)}
-                          className={cn(
-                            "h-9 w-9 shrink-0 rounded-full border-2 transition-transform active:scale-95",
-                            isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
+                          {o.value === "transparent" && (
+                            <span className="block h-full w-full rounded-full border-2 border-dashed border-muted-foreground/30" />
                           )}
-                          style={{ backgroundColor: `#${hex}` }}
-                          title={o.label}
-                          aria-label={o.label}
-                        />
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* Accesorios (gafas, etc.) */}
-                <div className="space-y-2">
-                  <span className="text-xs font-semibold text-foreground">Accesorios</span>
-                  <div className="flex gap-2 overflow-x-auto pb-1">
-                    {ACCESSORIES.map((o) => {
-                      const isSelected = avatarOptions.accessories === o.value
-                      const url = buildAvatarUrlWithOverride(avatarOptions, { accessories: o.value })
-                      return (
-                        <button
-                          key={o.value}
-                          type="button"
-                          onClick={() => updateAvatarOption("accessories", o.value)}
-                          className={cn(
-                            "relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 bg-card transition-transform active:scale-95",
-                            isSelected ? "border-primary ring-2 ring-primary/50" : "border-border hover:border-primary/50"
-                          )}
-                          title={o.label}
-                          aria-label={o.label}
-                        >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={url} alt="" className="h-full w-full object-cover" crossOrigin="anonymous" />
                         </button>
                       )
                     })}
@@ -665,9 +369,18 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                 </div>
               </div>
 
-              <p className="text-[10px] text-muted-foreground">
-                Toca una opción para aplicarla. Los cambios se ven al instante.
-              </p>
+              <div className="flex flex-col gap-2 pt-2">
+                <p className="text-[10px] text-muted-foreground text-center">
+                  Toca una opción para aplicarla. Los cambios se ven al instante.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setEditingAvatar(false)}
+                  className="w-full rounded-xl bg-primary py-2.5 text-sm font-bold text-primary-foreground transition-transform hover:bg-primary/90 active:scale-95"
+                >
+                  Confirmar Avatar
+                </button>
+              </div>
             </div>
           )}
 

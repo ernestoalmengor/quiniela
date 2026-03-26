@@ -10,6 +10,9 @@ import { Leaderboard } from "./leaderboard"
 import { RulesSection } from "./rules-section"
 import { ParticipantPredictions } from "./participant-predictions"
 import { ProfilePanel } from "./profile-panel"
+import { GroupsView } from "./groups-view"
+import { BracketView } from "./bracket-view"
+import { updateAvatarApi, savePredictionApi } from "@/lib/api"
 import type { QuinielaData, Prediction } from "@/lib/types"
 
 interface QuinielaAppProps {
@@ -46,7 +49,8 @@ function QuinielaContent({ data }: QuinielaAppProps) {
       ...prev,
       [matchId]: prediction,
     }))
-  }, [])
+    savePredictionApi(data.currentUser.participantId, matchId, prediction.home, prediction.away)
+  }, [data.currentUser.participantId])
 
   const currentUserWithAvatar = useMemo(
     () => ({ ...data.currentUser, avatar: userAvatar }),
@@ -63,7 +67,12 @@ function QuinielaContent({ data }: QuinielaAppProps) {
       />
       <ProfilePanel
         open={profileOpen}
-        onClose={() => setProfileOpen(false)}
+        onClose={() => {
+          setProfileOpen(false)
+          if (userAvatar !== data.currentUser.avatar) {
+            updateAvatarApi(data.currentUser.participantId, userAvatar)
+          }
+        }}
         user={currentUserWithAvatar}
         participant={userParticipant}
         jornadas={data.jornadas}
@@ -113,6 +122,14 @@ function QuinielaContent({ data }: QuinielaAppProps) {
               />
             )}
           </>
+        )}
+
+        {activeTab === "groups" && (
+          <GroupsView groups={data.groups ?? []} />
+        )}
+
+        {activeTab === "bracket" && (
+          <BracketView bracket={data.bracket ?? []} />
         )}
 
         {activeTab === "leaderboard" && (

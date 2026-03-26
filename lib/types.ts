@@ -60,10 +60,43 @@ export interface CurrentUser {
   participantId: string
 }
 
+export interface TeamStats {
+  team: Team
+  played: number
+  won: number
+  drawn: number
+  lost: number
+  goalsFor: number
+  goalsAgainst: number
+  goalDifference: number
+  points: number
+}
+
+export interface Group {
+  id: string
+  name: string
+  teams: TeamStats[]
+}
+
+export interface KnockoutMatch {
+  id: string
+  phase: string 
+  homeTeam: Team | null
+  awayTeam: Team | null
+  date: string
+  status: "upcoming" | "live" | "finished"
+  score: Score | null
+  homePenalties?: number
+  awayPenalties?: number
+  winnerTo?: string
+}
+
 export interface QuinielaData {
   currentUser: CurrentUser
   tournament: Tournament
   jornadas: Jornada[]
+  groups?: Group[]
+  bracket?: KnockoutMatch[]
   participants: Participant[]
   rules: Rules
 }
