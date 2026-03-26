@@ -136,7 +136,7 @@ function buildQuinielaData(requestingUserId) {
   });
 
   // 5. Calcular Grupos (Solo con partidos de fase de grupos terminados)
-  const groups = calculateGroups(partidosList.filter(p => !["Octavos", "Cuartos", "Semifinal", "Final", "Tercer Lugar"].includes(p.phase)));
+  const groups = calculateGroups(partidosList.filter(p => !["Octavos", "Cuartos", "Semifinal", "Final", "Tercer Lugar"].includes(p.phase)), equiposMap);
 
   // 6. Leer Predicciones y armar Usuarios
   const prediccionesRaw = getSheetData(ss, SHEETS.PREDICCIONES); // [usuario_id, partido_id, goles_local, goles_visitante]
@@ -220,8 +220,18 @@ function buildQuinielaData(requestingUserId) {
 /**
  * CÁLCULO DE GRUPOS
  */
-function calculateGroups(groupMatches) {
+function calculateGroups(groupMatches, equiposMap) {
   const groupsStatsMap = {}; // { grupoId: { teamId: { played, won... } } }
+  
+  // PRE-LLENAR TODOS LOS EQUIPOS DE EXCEL AUNQUE NO TENGAN PARTIDOS JUGADOS
+  if (equiposMap) {
+    Object.values(equiposMap).forEach(team => {
+      const gId = team.group;
+      if (!gId) return;
+      if (!groupsStatsMap[gId]) groupsStatsMap[gId] = {};
+      initTeamStatsIfNeed(groupsStatsMap[gId], team);
+    });
+  }
   
   groupMatches.forEach(m => {
     if (!m.score || m.status !== "finished") return;
