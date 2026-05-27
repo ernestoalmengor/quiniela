@@ -58,6 +58,7 @@ export interface CurrentUser {
   name: string
   avatar: string
   participantId: string
+  isAdmin?: boolean
 }
 
 export interface TeamStats {

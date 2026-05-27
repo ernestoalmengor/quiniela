@@ -1,6 +1,7 @@
 "use client"
 
-import { Sun, Moon, Trophy } from "lucide-react"
+import { Sun, Moon, Trophy, Crown } from "lucide-react"
+import Link from "next/link"
 import { useTheme } from "./theme-provider"
 import type { CurrentUser } from "@/lib/types"
 
@@ -43,6 +44,16 @@ export function Header({ user, tournamentName, userPoints, onAvatarClick }: Head
             <Trophy className="h-3.5 w-3.5 text-primary" />
             <span className="text-xs text-muted-foreground">{tournamentName}</span>
           </div>
+
+          {user.isAdmin && (
+            <Link 
+              href="/admin"
+              className="flex h-8 w-8 items-center justify-center rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-500 transition-colors hover:bg-amber-500/20"
+              title="Panel Administrativo"
+            >
+              <Crown className="h-4 w-4" />
+            </Link>
+          )}
 
           <button
             onClick={toggleTheme}

@@ -1,0 +1,49 @@
+id,nombre,grupo,iso_bandera
+MEX,México,A,mx
+RSA,Sudáfrica,A,za
+KOR,Corea del Sur,A,kr
+TBD1,Por determinarse,A,un
+CAN,Canadá,B,ca
+TBD2,Por determinarse,B,un
+QAT,Catar,B,qa
+SUI,Suiza,B,ch
+BRA,Brasil,C,br
+MAR,Marruecos,C,ma
+HAI,Haití,C,ht
+SCO,Escocia,C,gb-sct
+USA,Estados Unidos,D,us
+PAR,Paraguay,D,py
+AUS,Australia,D,au
+TBD3,Por determinarse,D,un
+GER,Alemania,E,de
+CUW,Curazao,E,cw
+CIV,Costa de Marfil,E,ci
+ECU,Ecuador,E,ec
+NED,Países Bajos,F,nl
+JPN,Japón,F,jp
+TBD4,Por determinarse,F,un
+TUN,Túnez,F,tn
+BEL,Bélgica,G,be
+EGY,Egipto,G,eg
+IRN,Irán,G,ir
+NZL,Nueva Zelanda,G,nz
+ESP,España,H,es
+CPV,Cabo Verde,H,cv
+KSA,Arabia Saudita,H,sa
+URU,Uruguay,H,uy
+FRA,Francia,I,fr
+SEN,Senegal,I,sn
+TBD5,Por determinarse,I,un
+NOR,Noruega,I,no
+ARG,Argentina,J,ar
+ALG,Argelia,J,dz
+AUT,Austria,J,at
+JOR,Jordania,J,jo
+POR,Portugal,K,pt
+TBD6,Por determinarse,K,un
+UZB,Uzbekistán,K,uz
+COL,Colombia,K,co
+ENG,Inglaterra,L,gb-eng
+CRO,Croacia,L,hr
+GHA,Ghana,L,gh
+PAN,Panamá,L,pa

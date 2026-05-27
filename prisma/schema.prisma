@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// -----------------------------------------------------------------
+// 1. SISTEMA DE AUTENTICACIÓN
+// -----------------------------------------------------------------
+model User {
+  id           String   @id @default(cuid())
+  firstName    String?
+  lastName     String?  // Tomado como 'apellido' o 'segundo nombre'
+  username     String?  @unique
+  email        String?  @unique
+  password     String?  
+  image        String?  // Avatar generativo
+  internalCode String   @unique @default(cuid()) 
+  role         String   @default("USER") 
+
+  avatarEyes   String?  
+  avatarMouth  String?  
+  avatarColor  String?  
+
+  // Relaciones
+  groupsAdmin Group[]       @relation("GroupAdmin")
+  memberships GroupMember[]
+  predictions Prediction[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// -----------------------------------------------------------------
+// 2. SISTEMA DE GRUPOS PRIVADOS (MULTI-TENANT)
+// -----------------------------------------------------------------
+model Group {
+  id         String   @id @default(cuid())
+  name       String   
+  inviteCode String   @unique @default(cuid())
+
+  adminId String
+  admin   User   @relation("GroupAdmin", fields: [adminId], references: [id])
+
+  members GroupMember[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model GroupMember {
+  id      String @id @default(cuid())
+  userId  String
+  groupId String
+  points  Int    @default(0) // Puntos ganados en la quiniela dentro de este grupo
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  group Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  joinedAt DateTime @default(now())
+
+  // Un usuario no puede estar 2 veces en el mismo grupo
+  @@unique([userId, groupId])
+}
+
+// -----------------------------------------------------------------
+// 3. CORE DE QUINIELA (PARTIDOS Y PREDICCIONES)
+// -----------------------------------------------------------------
+model Team {
+  id        String  @id @default(cuid())
+  name      String
+  shortName String  @unique // Ej. MEX, ARG
+  logo      String?
+  groupId   String? // Grupo real del mundial (A, B, C)
+
+  homeMatches TournamentMatch[] @relation("HomeTeam")
+  awayMatches TournamentMatch[] @relation("AwayTeam")
+}
+
+model Jornada {
+  id       Int       @id // Ej: 1, 2, 3
+  name     String
+  status   String    @default("upcoming") // upcoming, live, finished
+  deadline DateTime?
+
+  matches TournamentMatch[]
+}
+
+model TournamentMatch {
+  id        String @id @default(cuid())
+  jornadaId Int
+  phase     String @default("Grupos") // Grupos, Octavos, Cuartos
+
+  homeTeamId String?
+  awayTeamId String?
+
+  date   DateTime
+  status String   @default("upcoming") // upcoming, live, finished
+
+  // Marcadores reales
+  homeScore     Int?
+  awayScore     Int?
+  homePenalties Int?
+  awayPenalties Int?
+  winnerTo      String?
+
+  // Relaciones
+  jornada  Jornada @relation(fields: [jornadaId], references: [id])
+  homeTeam Team?   @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam Team?   @relation("AwayTeam", fields: [awayTeamId], references: [id])
+
+  predictions Prediction[]
+}
+
+// Predicciones Globales del Usuario (Si acierta, suma puntos en todos sus grupos)
+model Prediction {
+  id        String @id @default(cuid())
+  userId    String
+  matchId   String
+  homeScore Int
+  awayScore Int
+
+  user  User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  match TournamentMatch @relation(fields: [matchId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Solo 1 predicción por usuario y por partido
+  @@unique([userId, matchId])
+}

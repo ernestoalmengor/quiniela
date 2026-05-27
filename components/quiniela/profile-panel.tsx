@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useMemo, useCallback, useEffect } from "react"
-import { X, ChevronRight, Trophy, Target, TrendingUp, Pencil, Palette, UserCircle, Smile } from "lucide-react"
+import { X, ChevronRight, Trophy, Target, TrendingUp, Pencil, Palette, UserCircle, Smile, LogOut } from "lucide-react"
+import { signOut } from "next-auth/react"
 import { cn } from "@/lib/utils"
 import type { CurrentUser, Participant, Jornada, Match, Prediction } from "@/lib/types"
 
@@ -487,6 +488,16 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                 ))}
               </div>
             )}
+            {/* Sign Out Button */}
+            <div className="mt-8 px-5 pb-8">
+              <button
+                onClick={() => signOut({ callbackUrl: "/login" })}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-destructive/10 py-3 text-sm font-bold text-destructive transition-colors hover:bg-destructive hover:text-destructive-foreground active:scale-95"
+              >
+                <LogOut className="h-4 w-4" />
+                Cerrar Sesión
+              </button>
+            </div>
           </div>
         </div>
       </div>
