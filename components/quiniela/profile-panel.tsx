@@ -152,7 +152,7 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
   const updateAvatarOption = useCallback(<K extends keyof AvatarOptions>(key: K, value: AvatarOptions[K]) => {
     setAvatarOptions((prev) => {
       const next = { ...prev, [key]: value }
-      onAvatarChange(buildAvatarUrl(next))
+      setTimeout(() => onAvatarChange(buildAvatarUrl(next)), 0)
       return next
     })
   }, [onAvatarChange])
@@ -237,7 +237,6 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                 src={user.avatar}
                 alt={`Avatar de ${user.name}`}
                 className="h-20 w-20 rounded-full border-4 border-primary/30 bg-secondary"
-                crossOrigin="anonymous"
               />
               <button
                 onClick={() => setEditingAvatar(!editingAvatar)}
@@ -249,7 +248,7 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
             </div>
             <div className="flex flex-col items-center gap-0.5">
               <span className="text-lg font-bold text-foreground">{user.name}</span>
-              <span className="text-sm text-muted-foreground">{totalPoints} puntos totales</span>
+              <span className="text-sm text-muted-foreground">@{user.username} • {totalPoints} pts</span>
             </div>
           </div>
 
@@ -272,7 +271,6 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                     src={previewAvatarUrl}
                     alt="Vista previa de tu avatar"
                     className="h-full w-full object-cover"
-                    crossOrigin="anonymous"
                   />
                 </div>
               </div>
@@ -303,8 +301,7 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                           title={o.label}
                           aria-label={o.label}
                         >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={url} alt="" className="h-full w-full object-cover" crossOrigin="anonymous" />
+                          <img src={url} alt="" className="h-full w-full object-cover" />
                         </button>
                       )
                     })}
@@ -333,8 +330,7 @@ export function ProfilePanel({ open, onClose, user, participant, jornadas, onAva
                           title={o.label}
                           aria-label={o.label}
                         >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={url} alt="" className="h-full w-full object-cover" crossOrigin="anonymous" />
+                          <img src={url} alt="" className="h-full w-full object-cover" />
                         </button>
                       )
                     })}

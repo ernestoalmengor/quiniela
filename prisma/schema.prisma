@@ -21,6 +21,7 @@ model User {
   image        String?  // Avatar generativo
   internalCode String   @unique @default(cuid()) 
   role         String   @default("USER") 
+  isBlocked    Boolean  @default(false)
 
   avatarEyes   String?  
   avatarMouth  String?  
@@ -81,11 +82,20 @@ model Team {
   awayMatches TournamentMatch[] @relation("AwayTeam")
 }
 
+model Phase {
+  id       String    @id @default(cuid())
+  name     String    @unique // Ej. "Fase de grupos", "Dieciseisavos", "Octavos", "Cuartos", "Semifinal", "Final"
+  jornadas Jornada[]
+}
+
 model Jornada {
   id       Int       @id // Ej: 1, 2, 3
   name     String
   status   String    @default("upcoming") // upcoming, live, finished
   deadline DateTime?
+
+  phaseId  String?
+  phase    Phase?    @relation(fields: [phaseId], references: [id], onDelete: SetNull)
 
   matches TournamentMatch[]
 }
@@ -132,4 +142,11 @@ model Prediction {
 
   // Solo 1 predicción por usuario y por partido
   @@unique([userId, matchId])
+}
+
+model SystemConfig {
+  id                  String @id @default("global")
+  exactScorePoints    Int    @default(3)
+  correctWinnerPoints Int    @default(2)
+  drawPoints          Int    @default(1)
 }

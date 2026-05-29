@@ -6,7 +6,10 @@ import bcrypt from "bcryptjs"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  session: { strategy: "jwt" },
+  session: { 
+    strategy: "jwt",
+    maxAge: 15 * 60, // 15 minutos
+  },
   providers: [
     Credentials({
       name: "Credentials",
@@ -35,6 +38,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (!user || !user.password) {
           console.log("Rechazo: Usuario no existe o no tiene hash de password")
           return null
+        }
+
+        if (user.isBlocked) {
+          console.log("Rechazo: Usuario bloqueado")
+          throw new Error("Usuario bloqueado")
         }
 
         const isValid = await bcrypt.compare(credentials.password as string, user.password)

@@ -1,8 +1,9 @@
 "use client"
 
-import { Sun, Moon, Trophy, Crown } from "lucide-react"
+import { Sun, Moon, Trophy, Crown, LogOut } from "lucide-react"
 import Link from "next/link"
 import { useTheme } from "./theme-provider"
+import { signOut } from "next-auth/react"
 import type { CurrentUser } from "@/lib/types"
 
 interface HeaderProps {
@@ -29,12 +30,12 @@ export function Header({ user, tournamentName, userPoints, onAvatarClick }: Head
             alt={`Avatar de ${user.name}`}
             className="h-9 w-9 rounded-full border-2 border-primary bg-secondary"
           />
-          <div className="flex flex-col">
-            <span className="text-sm font-bold leading-tight text-foreground">
+          <div className="flex flex-col items-start justify-center ml-3">
+            <span className="text-sm font-bold text-foreground">
               {user.name}
             </span>
-            <span className="text-xs leading-tight text-muted-foreground">
-              {userPoints} pts
+            <span className="text-[10px] text-muted-foreground">
+              @{user.username} • {userPoints} pts
             </span>
           </div>
         </button>
@@ -65,6 +66,15 @@ export function Header({ user, tournamentName, userPoints, onAvatarClick }: Head
             ) : (
               <Moon className="h-4 w-4" />
             )}
+          </button>
+
+          <button
+            onClick={() => signOut({ callbackUrl: "/login" })}
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-destructive/20 bg-destructive/10 text-destructive transition-colors hover:bg-destructive hover:text-destructive-foreground active:scale-95"
+            title="Cerrar Sesión"
+            aria-label="Cerrar Sesión"
+          >
+            <LogOut className="h-4 w-4" />
           </button>
         </div>
       </div>

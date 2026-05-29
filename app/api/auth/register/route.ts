@@ -10,9 +10,22 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Todos los campos son obligatorios" }, { status: 400 });
     }
 
+    // Sanitizar y validar correo
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const cleanEmail = email.trim().toLowerCase();
+    if (!emailRegex.test(cleanEmail)) {
+      return NextResponse.json({ message: "Formato de correo electrónico inválido." }, { status: 400 });
+    }
+
+    // Validar contraseña robusta
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._\-\[\]\{\}\(\)\|\+\=\*\/\^\#])[A-Za-z\d@$!%*?&._\-\[\]\{\}\(\)\|\+\=\*\/\^\#]{8,}$/;
+    if (!passwordRegex.test(password)) {
+      return NextResponse.json({ message: "La contraseña no cumple con los requisitos de seguridad." }, { status: 400 });
+    }
+
     // Verificar si el correo ya existe
     const existingUser = await prisma.user.findUnique({
-      where: { email },
+      where: { email: cleanEmail },
     });
 
     if (existingUser) {
@@ -55,7 +68,7 @@ export async function POST(request: Request) {
       data: {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
-        email: email.trim(),
+        email: cleanEmail,
         username,
         password: hashedPassword,
         // El field internalCode se auto-genera con cuid() (UUID) por defecto oculto

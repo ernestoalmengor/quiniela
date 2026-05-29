@@ -1,6 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, useCallback } from "react"
+import * as React from "react"
+import { useTheme as useNextTheme } from "next-themes"
 
 type Theme = "dark" | "light"
 
@@ -9,36 +10,31 @@ interface ThemeContextValue {
   toggleTheme: () => void
 }
 
-const ThemeContext = createContext<ThemeContextValue>({
+const ThemeContext = React.createContext<ThemeContextValue>({
   theme: "light",
   toggleTheme: () => {},
 })
 
 export function useTheme() {
-  return useContext(ThemeContext)
+  return React.useContext(ThemeContext)
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light")
+  const { setTheme, resolvedTheme } = useNextTheme()
+  const [mounted, setMounted] = React.useState(false)
 
-  useEffect(() => {
-    const saved = localStorage.getItem("quiniela-theme") as Theme | null
-    if (saved === "light" || saved === "dark") {
-      setTheme(saved)
-    }
+  React.useEffect(() => {
+    setMounted(true)
   }, [])
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme)
-    localStorage.setItem("quiniela-theme", theme)
-  }, [theme])
+  const toggleTheme = React.useCallback(() => {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+  }, [resolvedTheme, setTheme])
 
-  const toggleTheme = useCallback(() => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"))
-  }, [])
+  const currentTheme = (mounted ? (resolvedTheme || "light") : "light") as Theme
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )

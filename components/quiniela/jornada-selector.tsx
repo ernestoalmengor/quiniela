@@ -55,10 +55,8 @@ export function JornadaSelector({ jornadas, selectedId, onSelect }: JornadaSelec
       </button>
 
       <div className="flex flex-col items-center gap-0.5">
+        <span className="text-xs font-medium text-muted-foreground">{selected?.phase?.name || "Fase de grupos"}</span>
         <span className="text-sm font-bold text-foreground">{selected?.name}</span>
-        <span className={cn("text-xs font-medium", getStatusColor(selected?.status))}>
-          {selected && getStatusLabel(selected.status)}
-        </span>
       </div>
 
       <button
